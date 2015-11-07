@@ -1,4 +1,4 @@
 all: rshell
 
-rshell: rshell.cpp
+rshell: src/rshell.cpp
 	g++ -g -Wall -Werror -ansi -pedantic rshell.cpp -o
