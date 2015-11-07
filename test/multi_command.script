@@ -1,0 +1,19 @@
+Script started on Fri 06 Nov 2015 03:38:09 PM PST
+[btaub001@hammer hw1]$ ./rshell
+btaub001@hammer.cs.ucr.edu$ls&&ls -a
+multi  pass  rshell  rshell.cpp	 single
+.  ..  multi  pass  rshell  rshell.cpp	single
+btaub001@hammer.cs.ucr.edu$ls-||echo ls failed
+execvp failed: Success
+
+ls failed
+btaub001@hammer.cs.ucr.edu$ls-&&echo and failed
+execvp failed: Success
+
+btaub001@hammer.cs.ucr.edu$ls-&&ls -a;echo second set
+execvp failed: Success
+
+second set
+btaub001@hammer.cs.ucr.edu$echo one;echo two;echo three
+one
+two

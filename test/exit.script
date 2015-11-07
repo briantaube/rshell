@@ -1,0 +1,13 @@
+Script started on Fri 06 Nov 2015 03:43:24 PM PST
+[btaub001@hammer hw1]$ ./rshell
+btaub001@hammer.cs.ucr.edu$exit
+[btaub001@hammer hw1]$ ./rshell
+btaub001@hammer.cs.ucr.edu$ls;exit
+comment	 exit  multi  pass  rshell  rshell.cpp	single
+[btaub001@hammer hw1]$ ./rshell
+btaub001@hammer.cs.ucr.edu$echo about to exit...;exit
+about to exit...
+[btaub001@hammer hw1]$ exit
+exit
+
+Script done on Fri 06 Nov 2015 03:43:55 PM PST

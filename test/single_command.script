@@ -1,0 +1,8 @@
+Script started on Fri 06 Nov 2015 03:32:28 PM PST
+[btaub001@hammer hw1]$ ./rshell
+btaub001@hammer.cs.ucr.edu$ls
+pass  rshell  rshell.cpp  single
+btaub001@hammer.cs.ucr.edu$ls -a
+.  ..  pass  rshell  rshell.cpp	 single
+btaub001@hammer.cs.ucr.edu$echo hello
+hello
