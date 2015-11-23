@@ -34,6 +34,8 @@ Known bugs:
 1. echo sometimes prints an additional gibberish character
 2. ls sometimes fails when part of a multiple command chain
 3. ls sometimes displays a '?' after created directories. This '?' character is not actually part of the directory name.
+4. Only allows for chains of 9 commands
+5. Only allows for 9 semi-colon seperated chains of commands
 
 #Copyright (C)  2015  Brian Taube.
     Permission is granted to copy, distribute and/or modify this document
