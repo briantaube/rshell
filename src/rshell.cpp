@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <iostream>
 #include <cstring>
 #include <cerrno>
@@ -125,8 +126,57 @@ do
                 com[counter] = strtok(NULL, " ");
             } while (com[counter] != NULL);
 
+            //if command = exit, end program
             if(strcmp(com[0], "exit") == 0)
                 return 0;
+            
+            //if command = test, perform proprietary test operation
+            if(strcmp(com[0], "test") == 0 || strcmp(com[0], "[") == 0)
+            {
+                struct stat statbuf;
+                if(strcmp(com[1], "-d") == 0)    //-d signifies directory test
+                {
+                    if(!stat(com[2], &statbuf))  //stat returns backwards: T returns F
+                    {
+                        if(S_ISDIR(statbuf.st_mode))
+	                    success = 0;
+                        else
+	                    success = -1;
+                    }
+                    else
+                        success = -1;
+                }
+                else if(strcmp(com[1], "-f") == 0)    //-f signifies file test
+                {
+                    if(!stat(com[2], &statbuf))
+                    {
+                        if(S_ISREG(statbuf.st_mode))
+	                    success = 0;
+                        else
+	                    success = -1;
+                    }
+                    else
+                        success = -1;
+                }
+                else                           //-e is default, signifies just check if path exists
+                {
+                    std::string statpath;
+                    if(strcmp(com[1], "-e") == 0)
+                        statpath = com[2];     //if flag specified com[2] contains path
+                    else
+                        statpath = com[1];     //if flag not specified com[1] contains path
+                    if(!stat(statpath.c_str(), &statbuf))
+	                success = 0;
+                    else
+                        success = -1;
+                }
+
+                std::fstream pass;             //pass success value through file
+                pass.open("pass", std::ios::out | std::ios::trunc);
+                pass << success;
+                pass.close();
+                continue;
+            }
 
             c_pid = fork();
             if (c_pid < 0)
@@ -205,6 +255,6 @@ do
 }
 while (strcmp(com[0], "exit") != 0);
 
-
+unlink("pass");
 return 0;
 }

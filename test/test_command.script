@@ -1,0 +1,29 @@
+Script started on Sun 22 Nov 2015 09:03:55 PM PST
+]0;btaub001@hammer:~/hw2[?1034h[btaub001@hammer hw2]$ ./rshell
+btaub001@hammer.cs.ucr.edu$test rshell && echo deafult       fault test -e fi   , file exits  sts
+default test -e, file exists
+btaub001@hammer.cs.ucr.edu$test rshell || echo de this       this should not print
+btaub001@hammer.cs.ucr.edu$test rshell        -e rshell && echo test -e param, file exists
+test -e param, file existse
+btaub001@hammer.cs.ucr.edu$test -e rshell || echo test -e param, s this should not print
+btaub001@hammer.cs.ucr.edu$test -d src && echo test -d, src is a dir
+test -d, src is a dirh
+btaub001@hammer.cs.ucr.edu$test -d, src      src || thi   echo this should not print
+btaub001@hammer.cs.ucr.edu$test -f src &&       rshell           f rshell && rshell if s a reg file
+execvp failed: Success
+
+btaub001@hammer.cs.ucr.edu$test -f rshell || this should not print
+btaub001@hammer.cs.ucr.edu$test -f rshell && echo this      rshell is a reg file
+rshell is a reg files
+btaub001@hammer.cs.ucr.edu$[ rhsell     shell ] && echo test []
+test []
+btaub001@hammer.cs.ucr.edu$[ -d r src ] && echo test [] with params
+test [] with params
+btaub001@hammer.cs.ucr.edu$exit
+execvp failed: Success
+
+btaub001@hammer.cs.ucr.edu$exit
+]0;btaub001@hammer:~/hw2[btaub001@hammer hw2]$ exit
+exit
+
+Script done on Sun 22 Nov 2015 09:07:54 PM PST
